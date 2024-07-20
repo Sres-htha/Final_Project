@@ -117,6 +117,10 @@ def update_employee(id):
     if not employee:
         abort(404, description=f"Employee with id {id} not present!")
     data = request.get_json()
+
+    if not data or 'name' not in data or 'age' not in data or 'department' not in data:
+        return jsonify({'error': 'Bad Request', 'message': 'Missing required fields'}), 400
+
     employee.name = data['name']
     employee.age = data['age']
     employee.department = data['department']

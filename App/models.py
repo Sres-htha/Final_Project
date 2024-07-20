@@ -10,10 +10,10 @@ class Employee(db.Model):
     age = db.Column(db.Integer)
     department = db.Column(db.String(50), nullable = False)
 
-    def __init__(self, name, age, department):
-        self.name = name
-        self.age = age
-        self.department = department
+    # def __init__(self, name, age, department):
+    #     self.name = name
+    #     self.age = age
+    #     self.department = department
 
 
     def as_dict(self):
