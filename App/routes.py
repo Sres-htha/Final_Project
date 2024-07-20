@@ -2,13 +2,16 @@ from flask import Blueprint, request, jsonify, abort
 from App.models import db, Employee
 from App.schemas import EmployeeSchema
 
+# Instantiate schema objects for serializing and deserializing employee data
 employee_schema = EmployeeSchema()
 employees_schema = EmployeeSchema(many=True)
 
 
+# Create a Blueprint for the routes
 routes = Blueprint('routes',  __name__)
 
 
+# Define a route for the home page
 @routes.route('/')
 def index():
  return jsonify({'message' : 'Welcome to the Employee Management!'})
